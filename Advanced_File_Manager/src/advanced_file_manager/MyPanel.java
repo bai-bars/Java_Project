@@ -1,3 +1,6 @@
+                                                                            
+
+
 
 package advanced_file_manager;
 
@@ -11,5 +14,6 @@ class MyPanel extends JPanel{
         //this.setLayout(null);
         this.setBounds(xXis,yXis, width, height);
         this.setBackground(new Color(R,G,B));
+        this.setLayout(null);
     }
 }
