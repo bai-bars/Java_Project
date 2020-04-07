@@ -26,7 +26,7 @@ public class MyFrame extends JFrame {
     JLabel menuImageLabelBack=new JLabel(); //for the back part of menu panel
     JLabel menuImageLabelFront=new JLabel(); //for the front part of menu panel
     
-    
+    ImageIcon menuFrontIcon,menuBackIcon,enteredfront,enteredback;
     JPanel imagePanel=new JPanel();
     JLabel textMsgLabel=new JLabel();
     String textMsg="'IF YOU'RE TIRED OF ORGANIZING YOUR FILES,YOU'VE CHOSEN THE RIGHT ONE'";
@@ -40,97 +40,33 @@ public class MyFrame extends JFrame {
     
    MyFrame(String title)
    {
+      
         //back_panel>>>nearly ash colour
        //front_panel>>>blackish-neavy blue
        
        
        //in the back there will be all menu button
-       ImageIcon menuFrontIcon=new ImageIcon(getClass().getResource("menuIconFront.png"));
-       ImageIcon menuBackIcon=new ImageIcon(getClass().getResource("menuIconBack.png"));
+       menuFrontIcon=new ImageIcon(getClass().getResource("menuIconFront_.png"));
+       menuBackIcon=new ImageIcon(getClass().getResource("menuIconBack_.png"));
        
        //for mouseEnteredIcon
-       ImageIcon enteredfront=new ImageIcon(getClass().getResource("enteredfront_.png"));
-       ImageIcon enteredback=new ImageIcon(getClass().getResource("enteredback_.png"));
+       enteredfront=new ImageIcon(getClass().getResource("enteredfront_.png"));
+       enteredback=new ImageIcon(getClass().getResource("enteredback_.png"));
        
-       
-       
-       menuImageLabelBack.setIcon(menuBackIcon);
-       menuImageLabelBack.setBounds(120,15,24,24);
-       
-       
-       
-       //in the front there will be intro of this application   
        
        menuImageLabelFront.setIcon(menuFrontIcon);
+       menuImageLabelBack.setIcon(menuBackIcon);
+       
+       
+       
+       menuImageLabelBack.setBounds(120,15,24,24);
        menuImageLabelFront.setBounds(120,15,24,24);
-
-
-       menuImageLabelBack.addMouseListener(new MouseListener(){
        
-       public void mouseClicked(MouseEvent me)
-       {
-           System.out.println("moused has been clicked for ash");
-       }
+      
+
+      
        
      
-       
-       public void mousePressed(MouseEvent me)
-       {
-           
-       }
-      
-       public void mouseReleased(MouseEvent me)
-       {
-           System.out.println("mouse has been released for ash");
-       }
-       
-       public void mouseEntered(MouseEvent me)
-       {
-            menuImageLabelBack.setIcon(enteredback);
-           
-       }
-      
-       public void mouseExited(MouseEvent me)
-       {
-            menuImageLabelBack.setIcon(menuFrontIcon);
-       }
-       
-       });
-       
-      
-       
-        menuImageLabelFront.addMouseListener(new MouseListener(){
-       
-       public void mouseClicked(MouseEvent me)
-       {
-           System.out.println("mouse has been clicked for neavy blue");
-       }
-       
-     
-       
-       public void mousePressed(MouseEvent me)
-       {
-           
-       }
-      
-       public void mouseReleased(MouseEvent me)
-       {
-           System.out.println("mouse has been released");
-           
-       }
-       
-       public void mouseEntered(MouseEvent me)
-       {
-            menuImageLabelFront.setIcon(enteredfront);
-           
-       }
-      
-       public void mouseExited(MouseEvent me)
-       {
-            menuImageLabelFront.setIcon(menuFrontIcon);
-       }
-       
-       });
       
        
        
