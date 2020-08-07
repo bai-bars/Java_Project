@@ -59,8 +59,8 @@ public class Advanced_File_Manager {
                    }; th.start();
                    x=0;
           }
-          public void mouseEntered(MouseEvent me){/*frame1.menuImageLabelBack.setIcon(frame1.enteredback);*/}
-        public void mouseExited(MouseEvent me){/*frame1.menuImageLabelBack.setIcon(frame1.menuBackIcon);*/}
+          public void mouseEntered(MouseEvent me){frame1.menuImageLabelBack.setIcon(frame1.enteredback);}
+        public void mouseExited(MouseEvent me){frame1.menuImageLabelBack.setIcon(frame1.menuBackIcon);}
        public void mousePressed(MouseEvent me){}public void mouseReleased(MouseEvent me){}
      });
        
@@ -86,8 +86,8 @@ public class Advanced_File_Manager {
                th.start();
                x=170;
                }
-       public void mouseEntered(MouseEvent me){/*frame1.menuImageLabelFront.setIcon(frame1.enteredfront);*/}
-       public void mouseExited(MouseEvent me){/*frame1.menuImageLabelFront.setIcon(frame1.menuFrontIcon);*/}
+       public void mouseEntered(MouseEvent me){frame1.menuImageLabelFront.setIcon(frame1.enteredfront);}
+       public void mouseExited(MouseEvent me){frame1.menuImageLabelFront.setIcon(frame1.menuFrontIcon);}
        public void mousePressed(MouseEvent me){}public void mouseReleased(MouseEvent me){}
        });
        
@@ -101,6 +101,12 @@ public class Advanced_File_Manager {
         frame1.labelTheMessage();
 
         //   movingText.setFont(new Font("Arial",0,14));
+        
+        Mybutton button1=new Mybutton("Rename");
+        Mybutton button2=new Mybutton("Mover");
+        
+        panel_back.add(button1);
+        panel_front.add(button2);
     }
 
 }

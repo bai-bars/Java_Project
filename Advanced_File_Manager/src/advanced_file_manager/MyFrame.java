@@ -14,8 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-
-
+/**
+ *
+ * @author "Baibars,A_Humble_Pirate"
+ */
 
 public class MyFrame extends JFrame {
     
@@ -74,7 +76,7 @@ public class MyFrame extends JFrame {
        
     
       homeIcon =new ImageIcon(getClass().getResource("home3.jpg"));
-       frameIcon=new ImageIcon(getClass().getResource("folderIcon.jpg"));
+       frameIcon=new ImageIcon(getClass().getResource("folderIcon.png"));
        this.setIconImage(frameIcon.getImage());
    
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
