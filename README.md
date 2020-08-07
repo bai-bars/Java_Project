@@ -1,3 +1,9 @@
 # Java_Project
+# Project Name:Advanced File Manager
+	# Advanced Features:
+		
+		# Bench Renaming
+		# Auto File moving to destination folder from source folder
+		
 This project is in progress.
-In sha Allah,this Java application will let you organizing your files in a smart way.It will try to fullfil your many expectations in a one file manager.
+In sha Allah,this Java application will let you organizing your files in a smart way.
