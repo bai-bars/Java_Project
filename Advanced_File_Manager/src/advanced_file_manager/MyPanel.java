@@ -9,7 +9,6 @@ import javax.swing.JPanel;
  * @author "Baibars,A_Humble_Pirate"
  */
 class MyPanel extends JPanel{
-    
     MyPanel(int xXis,int yXis,int width,int height,int R,int G,int B)
     {
         //this.setLayout(null);

@@ -102,11 +102,34 @@ public class Advanced_File_Manager {
 
         //   movingText.setFont(new Font("Arial",0,14));
         
-        Mybutton button1=new Mybutton("Rename");
-        Mybutton button2=new Mybutton("Mover");
+        Mybutton renameb=new Mybutton("RENAME",0,92);
+        Mybutton moveb=new Mybutton("MOVE",0,120);
+        Mybutton copyb=new Mybutton("COPY",0,148);
+        Mybutton cutb=new Mybutton("CUT",0,176);
         
-        panel_back.add(button1);
-        panel_front.add(button2);
+        Mybutton batchf=new Mybutton("BATCH RENAME",0,92);
+        Mybutton auto_movef=new Mybutton("AUTO MOVE",0,120);
+        Mybutton auto_copyf=new Mybutton("AUTO COPY",0,148);
+        
+        
+        
+        
+        panel_back.add(renameb);
+        panel_back.add(moveb);
+        panel_back.add(copyb);
+        panel_back.add(cutb);
+        
+         panel_front.add(batchf);
+         panel_front.add(auto_movef);
+         panel_front.add(auto_copyf);
+        
+        Color b=new Color( 23, 35, 51);
+        Color f=new Color(54,70,78);
+        TextLabel btext=new TextLabel("     #BASIC TOOLS",15,60,f,Color.WHITE);
+        TextLabel ftext=new TextLabel("#ADVANCED TOOLS",15,60,b,Color.WHITE);
+        panel_back.add(btext);
+        panel_front.add(ftext);
+        
     }
 
 }
