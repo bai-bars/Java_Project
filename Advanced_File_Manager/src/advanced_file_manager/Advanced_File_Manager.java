@@ -1,6 +1,9 @@
 package advanced_file_manager;
 
+import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
@@ -22,9 +25,9 @@ public class Advanced_File_Manager {
 
        
         
-          MyPanel panel_front = new MyPanel(0,80, 170, 500, 23, 35, 51); //front panel neavy blue//neavy_blue={23,35,51};
+          MyPanel panel_front = new MyPanel(0,82, 170, 498, 23, 35, 51); //front panel neavy blue//neavy_blue={23,35,51};
         
-        MyPanel panel_back = new MyPanel(0,80, 170, 500, 54,70,78);    //back panel //ash={54,70,78};
+        MyPanel panel_back = new MyPanel(0,82, 170, 498, 54,70,78);    //back panel //ash={54,70,78};
       
         frame1.C.add(panel_back); //this panel will have menu Label
       frame1.C.add(panel_front); //this panel will contain the about of mine
@@ -129,6 +132,51 @@ public class Advanced_File_Manager {
         TextLabel ftext=new TextLabel("#ADVANCED TOOLS",15,60,b,Color.WHITE);
         panel_back.add(btext);
         panel_front.add(ftext);
+        
+        
+        CardLayout panelayout;
+        MyPanel pcards= new MyPanel(172,82,930,520,50,50,50);
+        pcards.setLayout(new CardLayout());
+        panelayout= (CardLayout)(pcards.getLayout());
+        frame1.C.add(pcards);
+        
+        MyPanel p1,p2,p3,p4,p5,p6,p7;
+        p1=new MyPanel(172,82,930,520,50,50,50);
+        p1.setSomeText("this is p1");
+        p1.setVisible(false);
+        p2=new MyPanel(172,82,930,520,50,50,50);
+        p2.setSomeText("this is p2");
+        p2.setVisible(false);
+        p3=new MyPanel(172,82,930,520,50,50,50);
+        p3.setSomeText("this is p3");
+        p4=new MyPanel(172,82,930,520,50,50,50);
+        p4.setSomeText("this is p4");
+        p5=new MyPanel(172,82,930,520,50,50,50);
+        p5.setSomeText("this is p5");
+        p6=new MyPanel(172,82,930,520,50,50,50);
+        p6.setSomeText("this is p6");
+        p7=new MyPanel(172,82,930,520,50,50,50);
+        p7.setSomeText("this is 7");
+        
+        pcards.add(p1);
+        pcards.add(p2);
+        pcards.add(p3);
+        pcards.add(p4);
+        pcards.add(p5);
+        pcards.add(p6);
+        pcards.add(p7);
+        
+        copyb.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+          p1.setVisible(false);
+         }
+      });
+        
+        renameb.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e) {
+            p2.setVisible(false);
+         }
+      });
         
     }
 
