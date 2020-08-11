@@ -20,11 +20,11 @@ class TextLabel extends JLabel{
     TextLabel(String text,int left,int top,Color bcol,Color fcol){
         //JLabel j=new JLabel();
         setText(text);
-        setBounds(left,top, 140,30 );
+        setBounds(left,top, 200,200 );
         setBackground(bcol);
         setForeground(fcol);
         setOpaque(true);
-        setFont(new Font("Aerial",  Font.ITALIC, 13));
+        setFont(new Font("Aerial",  Font.ITALIC, 15));
         
     }
 }

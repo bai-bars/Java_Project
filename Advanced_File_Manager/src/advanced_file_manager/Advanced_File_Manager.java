@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -14,7 +15,126 @@ import javax.swing.JOptionPane;
  *
  * @author "Baibars,A_Humble_Pirate"
  */
-public class Advanced_File_Manager implements ActionListener {
+public class Advanced_File_Manager {
+        static Mybutton renameb,moveb,copyb,cutb,batchf,auto_movef,auto_copyf,search_regf;
+        static MyPanel renamePanel,movePanel,copyPanel,cutPanel,batchRenamePanel,autoMovePanel,autoCopyPanel,searchRegPanel,homepanel;
+    static class ButtonPanel implements ActionListener{
+            ButtonPanel(){
+	renameb=new Mybutton("RENAME",0,92);
+        moveb=new Mybutton("MOVE",0,120);
+        copyb=new Mybutton("COPY",0,148);
+        cutb=new Mybutton("CUT",0,176);
+        
+        batchf=new Mybutton("BATCH RENAME",0,92);
+        auto_movef=new Mybutton("AUTO MOVE",0,120);
+        auto_copyf=new Mybutton("AUTO COPY",0,148);
+        search_regf=new Mybutton("SEARCH(REG-EX)",0,176);
+            
+            renameb.addActionListener(this);
+            moveb.addActionListener(this);
+            copyb.addActionListener(this);
+            cutb.addActionListener(this);
+            batchf.addActionListener(this);
+            auto_movef.addActionListener(this);
+            auto_copyf.addActionListener(this);
+            search_regf.addActionListener(this);
+			}
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource()==renameb){
+                homepanel.setVisible(false);
+                renamePanel.setVisible(true);
+                movePanel.setVisible(false);
+                copyPanel.setVisible(false);
+                cutPanel.setVisible(false);
+                batchRenamePanel.setVisible(false);
+                autoMovePanel.setVisible(false);
+                autoCopyPanel.setVisible(false);
+                searchRegPanel.setVisible(false);
+        }
+            if(e.getSource()==moveb){
+                System.out.println("This is move");
+                homepanel.setVisible(false);
+                renamePanel.setVisible(false);
+                movePanel.setVisible(true);
+                copyPanel.setVisible(false);
+                cutPanel.setVisible(false);
+                batchRenamePanel.setVisible(false);
+                autoMovePanel.setVisible(false);
+                autoCopyPanel.setVisible(false);
+                searchRegPanel.setVisible(false);
+            }
+            if(e.getSource()==copyb){
+                System.out.println("This is copy");
+                homepanel.setVisible(false);
+                renamePanel.setVisible(false);
+                movePanel.setVisible(false);
+                copyPanel.setVisible(true);
+                cutPanel.setVisible(false);
+                batchRenamePanel.setVisible(false);
+                autoMovePanel.setVisible(false);
+                autoCopyPanel.setVisible(false);
+                searchRegPanel.setVisible(false);
+            }
+            if (e.getSource()==cutb){
+                homepanel.setVisible(false);
+                renamePanel.setVisible(false);
+                movePanel.setVisible(false);
+                copyPanel.setVisible(false);
+                cutPanel.setVisible(true);
+                batchRenamePanel.setVisible(false);
+                autoMovePanel.setVisible(false);
+                autoCopyPanel.setVisible(false);
+                searchRegPanel.setVisible(false);
+            }
+            if (e.getSource()==batchf){
+                homepanel.setVisible(false);
+                renamePanel.setVisible(false);
+                movePanel.setVisible(false);
+                copyPanel.setVisible(false);
+                cutPanel.setVisible(false);
+                batchRenamePanel.setVisible(true);
+                autoMovePanel.setVisible(false);
+                autoCopyPanel.setVisible(false);
+                searchRegPanel.setVisible(false);
+            }
+            if (e.getSource()==auto_movef){
+                homepanel.setVisible(false);
+                renamePanel.setVisible(false);
+                movePanel.setVisible(false);
+                copyPanel.setVisible(false);
+                cutPanel.setVisible(false);
+                batchRenamePanel.setVisible(false);
+                autoMovePanel.setVisible(true);
+                autoCopyPanel.setVisible(false);
+                searchRegPanel.setVisible(false);
+            }
+            if (e.getSource()==auto_copyf){
+                homepanel.setVisible(false);
+                renamePanel.setVisible(false);
+                movePanel.setVisible(false);
+                copyPanel.setVisible(false);
+                cutPanel.setVisible(false);
+                batchRenamePanel.setVisible(false);
+                autoMovePanel.setVisible(false);
+                autoCopyPanel.setVisible(true);
+                searchRegPanel.setVisible(false);
+            }
+            
+            if (e.getSource()==search_regf){
+                homepanel.setVisible(false);
+                renamePanel.setVisible(false);
+                movePanel.setVisible(false);
+                copyPanel.setVisible(false);
+                cutPanel.setVisible(false);
+                batchRenamePanel.setVisible(false);
+                autoMovePanel.setVisible(false);
+                autoCopyPanel.setVisible(false);
+                searchRegPanel.setVisible(true);
+            }
+        }
+		}
     
    
 
@@ -105,18 +225,7 @@ public class Advanced_File_Manager implements ActionListener {
 
         //   movingText.setFont(new Font("Arial",0,14));
         
-        Mybutton renameb=new Mybutton("RENAME",0,92);
-        Mybutton moveb=new Mybutton("MOVE",0,120);
-        Mybutton copyb=new Mybutton("COPY",0,148);
-        Mybutton cutb=new Mybutton("CUT",0,176);
-        
-        Mybutton batchf=new Mybutton("BATCH RENAME",0,92);
-        Mybutton auto_movef=new Mybutton("AUTO MOVE",0,120);
-        Mybutton auto_copyf=new Mybutton("AUTO COPY",0,148);
-        Mybutton search_regf=new Mybutton("SEARCH(REG-EX)",0,176);
-        
-        
-        
+        new ButtonPanel();
         
         panel_back.add(renameb);
         panel_back.add(moveb);
@@ -136,30 +245,44 @@ public class Advanced_File_Manager implements ActionListener {
         panel_front.add(ftext);
         
         
-        MyPanel homepanel= new MyPanel(172,82,930,520,50,50,50);
+        homepanel= new MyPanel(172,82,827,517,50,50,50);
         homepanel.setSomeText("Hey,this is your home page");
-        frame1.add(homepanel);
+        homepanel.setVisible(true);
         
-        MyPanel renamePanel,movePanel,copyPanel,cutPanel,
-        batchRenamePanel,autoMovePanel,autoCopyPanel,searchRegPanel;
+        renamePanel=new MyPanel(172,82,827,517,50,50,50);
+        renamePanel.setSomeText("\"NOT IMPLEMENTED YET:\nrenamePanel");
+        renamePanel.setVisible(false);
+                
+        movePanel=new MyPanel(172,82,827,517,50,50,50);
+        movePanel.setSomeText("NOT IMPLEMENTED YET:\nmovepanel");
+        movePanel.setVisible(false);
         
-        renamePanel=new MyPanel(172,82,930,520,50,50,50);
-        renamePanel.setSomeText("this is renamePanel");
-        movePanel=new MyPanel(172,82,930,520,50,50,50);
-        movePanel.setSomeText("this is movePanel");
-        copyPanel=new MyPanel(172,82,930,520,50,50,50);
+        copyPanel=new MyPanel(172,82,827,517,50,50,50);
         copyPanel.setSomeText("this is copyPanel");
-        cutPanel=new MyPanel(172,82,930,520,50,50,50);
-        cutPanel.setSomeText("this is cutPanel");
-        batchRenamePanel=new MyPanel(172,82,930,520,50,50,50);
-        batchRenamePanel.setSomeText("this is batchRenamePanel");
-        autoMovePanel=new MyPanel(172,82,930,520,50,50,50);
-        autoMovePanel.setSomeText("this is autoMovePanel");
-        autoCopyPanel=new MyPanel(172,82,930,520,50,50,50);
-        autoCopyPanel.setSomeText("this is autoCopyPanel");
-        searchRegPanel=new MyPanel(172,82,930,520,50,50,50);
-        searchRegPanel.setSomeText("this is searchRegPanel");
+        copyPanel.setVisible(false);
         
+        cutPanel=new MyPanel(172,82,827,517,50,50,50);
+        cutPanel.setSomeText("this is cutPanel");
+        cutPanel.setVisible(false);
+        
+        batchRenamePanel=new MyPanel(172,82,827,517,50,50,50);
+        batchRenamePanel.setSomeText("this is batchRenamePanel");
+        batchRenamePanel.setVisible(false);
+        
+        autoMovePanel=new MyPanel(172,82,827,517,50,50,50);
+        autoMovePanel.setSomeText("this is autoMovePanel");
+        autoMovePanel.setVisible(false);
+        
+        autoCopyPanel=new MyPanel(172,82,827,517,50,50,50);
+        autoCopyPanel.setSomeText("this is autoCopyPanel");
+        autoCopyPanel.setVisible(false);
+        
+        searchRegPanel=new MyPanel(172,82,827,517,50,50,50);
+        searchRegPanel.setSomeText("this is searchRegPanel");
+        searchRegPanel.setVisible(false);
+        
+        
+        frame1.add(homepanel);
         frame1.add(renamePanel);
         frame1.add(movePanel);
         frame1.add(copyPanel);
@@ -169,11 +292,6 @@ public class Advanced_File_Manager implements ActionListener {
         frame1.add(autoCopyPanel);
         frame1.add(searchRegPanel);
         
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-       
     }
 
 }

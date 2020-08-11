@@ -18,7 +18,7 @@ class MyPanel extends JPanel{
     }
     
     void setSomeText(String s){
-        TextLabel txt=new TextLabel(s,200,200,Color.YELLOW,Color.WHITE);
+        TextLabel txt=new TextLabel(s,300,300,Color.YELLOW,Color.WHITE);
         txt.setOpaque(true);
         this.add(txt);
     }
