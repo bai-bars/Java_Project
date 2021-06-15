@@ -145,9 +145,9 @@ public class Advanced_File_Manager {
 
        
         
-        MyPanel panel_front = new MyPanel(0,82, 170, 498, 23, 35, 51); //front panel neavy blue//neavy_blue={23,35,51};
+        MyPanel panel_front = new MyPanel(0,82, 170, 479,new Color(23, 35, 51)); //front panel neavy blue//neavy_blue={23,35,51};
         
-        MyPanel panel_back = new MyPanel(0,82, 170, 498, 54,70,78);    //back panel //ash={54,70,78};
+        MyPanel panel_back = new MyPanel(0,82, 170, 479,new Color(54,70,78));    //back panel //ash={54,70,78};
       
         frame1.C.add(panel_back); //this panel will have menu Label
         frame1.C.add(panel_front); //this panel will contain the about of mine
@@ -244,41 +244,44 @@ public class Advanced_File_Manager {
         panel_back.add(btext);
         panel_front.add(ftext);
         
-        
-        homepanel= new MyPanel(172,82,827,517,50,50,50);
+        Color col=new Color(50,50,50);
+        homepanel= new MyPanel(172,82,811,479,col);
         homepanel.setSomeText("Hey,this is your home page");
-        homepanel.setVisible(true);
         
-        renamePanel=new MyPanel(172,82,827,517,50,50,50);
+        renamePanel=new MyPanel(172,82,811,479,col);
         renamePanel.setSomeText("\"NOT IMPLEMENTED YET:\nrenamePanel");
         renamePanel.setVisible(false);
                 
-        movePanel=new MyPanel(172,82,827,517,50,50,50);
+        movePanel=new MyPanel(172,82,811,479,col);
         movePanel.setSomeText("NOT IMPLEMENTED YET:\nmovepanel");
         movePanel.setVisible(false);
         
-        copyPanel=new MyPanel(172,82,827,517,50,50,50);
+        copyPanel=new MyPanel(172,82,811,479,col);
         copyPanel.setSomeText("this is copyPanel");
         copyPanel.setVisible(false);
         
-        cutPanel=new MyPanel(172,82,827,517,50,50,50);
+        cutPanel=new MyPanel(172,82,811,479,col);
         cutPanel.setSomeText("this is cutPanel");
         cutPanel.setVisible(false);
         
-        batchRenamePanel=new MyPanel(172,82,827,517,50,50,50);
+        batchRenamePanel=new MyPanel(172,82,811,479,col);
         batchRenamePanel.setSomeText("this is batchRenamePanel");
         batchRenamePanel.setVisible(false);
         
-        autoMovePanel=new MyPanel(172,82,827,517,50,50,50);
+        autoMovePanel=new MyPanel(172,82,811,479,col);
         autoMovePanel.setSomeText("this is autoMovePanel");
         autoMovePanel.setVisible(false);
         
-        autoCopyPanel=new MyPanel(172,82,827,517,50,50,50);
+        autoCopyPanel=new MyPanel(172,82,811,479,col);
         autoCopyPanel.setSomeText("this is autoCopyPanel");
         autoCopyPanel.setVisible(false);
         
-        searchRegPanel=new MyPanel(172,82,827,517,50,50,50);
-        searchRegPanel.setSomeText("this is searchRegPanel");
+        searchRegPanel=new MyPanel(172,82,811,479,col);
+        SearchRegex done=new SearchRegex(40,30);
+        searchRegPanel.add(done.directoryBtn);
+        searchRegPanel.add(done.text);
+        
+       // searchRegPanel.setSomeText("this is searchRegPanel");
         searchRegPanel.setVisible(false);
         
         

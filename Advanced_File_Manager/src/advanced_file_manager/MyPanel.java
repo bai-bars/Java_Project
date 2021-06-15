@@ -9,11 +9,11 @@ import javax.swing.JPanel;
  * @author "Baibars,A_Humble_Pirate"
  */
 class MyPanel extends JPanel{
-    MyPanel(int xXis,int yXis,int width,int height,int R,int G,int B)
+    MyPanel(int xXis,int yXis,int width,int height,Color C)
     {
         //this.setLayout(null);
         this.setBounds(xXis,yXis, width, height);
-        this.setBackground(new Color(R,G,B));
+        this.setBackground(C);
         this.setLayout(null);
     }
     

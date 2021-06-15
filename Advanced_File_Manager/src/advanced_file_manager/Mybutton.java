@@ -7,8 +7,9 @@ import javax.swing.JButton;
 
 /**
  *
- * @author bai-bars
+ * @author "Baibars,A_Humble_Pirate"
  */
+
 public class Mybutton extends JButton {
     Mybutton(String text,int left,int top){
         setBounds(left,top,170,28);
