@@ -36,12 +36,7 @@ public class RenameXMLController implements Initializable {
     String apath= null;
     File folder;
     String extension;
-    
-    String myDate(LocalDate i){
-        
-        return "hello";
-    }
-    
+  
     @FXML
     void browseFolderOnAction(ActionEvent e){
         DirectoryChooser folderChooser = new DirectoryChooser();
@@ -51,11 +46,8 @@ public class RenameXMLController implements Initializable {
         
         if(folder!= null){
             apath = folder.getAbsolutePath();
-            System.out.println(apath);
             folderTextField.setText(apath);
-            filesInDir = folder.listFiles();
-          // filesTextField.setEditable(false);
-          //  browseFilesbtn.setDisable(true);
+            filesInDir = folder.listFiles(File::isFile);
           }
         
         
@@ -141,3 +133,5 @@ public class RenameXMLController implements Initializable {
     }    
     
 }
+// filesTextField.setEditable(false);
+//  browseFilesbtn.setDisable(true);

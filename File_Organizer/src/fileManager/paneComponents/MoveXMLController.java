@@ -4,30 +4,45 @@ package fileManager.paneComponents;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableMap;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
+ * MoveXML Controller class
  *
  * @author baibars-barbarossa
  */
 public class MoveXMLController implements Initializable {
     @FXML
     AnchorPane movePane;
+   // @FXML
+   // AnchorPane successPane;
+    //@FXML
+    //private ListView<String>listview;
+    @FXML
+    private Label folderTypeLabel;
+    //@FXML
+    //private Label successLabel;
     
     @FXML
     TextField folderTextField,categoryTextField,extensionTextField;
@@ -36,9 +51,26 @@ public class MoveXMLController implements Initializable {
     File[] filesInDir =null;
     String apath;
     Map<String, ArrayList<String>> map;
-    ObservableMap<String, ArrayList<String>> observableMap;
+    //ObservableList <String> list;
+    ArrayList<String> list;
     
     @FXML void createCategoryOnAction(ActionEvent e){
+        String category= categoryTextField.getText();
+        String extension= extensionTextField.getText();
+        
+        if(!map.containsKey(category)) map.put(category, new ArrayList<String>(Arrays.asList(extension)));
+        else map.get(category).add(extension);
+        
+        StringBuilder str= new StringBuilder();
+        for(String key : map.keySet()){
+            str.append("'"+key+"'"+" allows : ");
+            for(String val: map.get(key)){
+                str.append("("+val+") ");
+            }
+          
+            str.append("\n");
+        }
+        folderTypeLabel.setText(str.toString());
     }
     
     @FXML
@@ -50,57 +82,70 @@ public class MoveXMLController implements Initializable {
         if(folder!= null){
             apath = folder.getAbsolutePath();
             folderTextField.setText(apath);
-            filesInDir = folder.listFiles();
+            filesInDir = folder.listFiles(File::isFile);
           }
     }
     
     @FXML
     void organizeOnAction(ActionEvent e){
-//        File newFolder = new File(apath+"\\images");
-//        newFolder.mkdir();
-//        String fromFile = newFolder.getAbsolutePath();
-//        String toFile = "";
-//
-//        Path source = Paths.get(fromFile);
-//        Path target = Paths.get(toFile);
-//
-//        try {
-//            Files.move(source, target);
-//
-//            // Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+          try{
+              for(String key : map.keySet() ){
+              File newFolder = new File(apath+"\\"+key);
+              if(!newFolder.isDirectory()) newFolder.mkdir();
+              
+              for(File file : filesInDir){
+               String extension="";
+               String name = file.getName();
+               int dotIndex = name.lastIndexOf('.');
+               if (dotIndex > 0) extension = name.substring(dotIndex+1);
+               
+               for(String folder : map.keySet()){
+                   if(map.get(folder).contains(extension)){
+                       
+                       Path source = Paths.get(file.getAbsolutePath());
+                       Path target = Paths.get(apath+"\\"+folder+"\\"+file.getName());
+                       try{
+                           Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
+                       }catch(Exception ex){
+                            System.out.println("Sorry!");
+                        }
+                   }
+               }
+               
+          }
+              }
+              
+          }catch(Exception exc){
+              
+          }
+          
+          
+          
     }
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       map = new HashMap<String, ArrayList<String> >();
-       observableMap = FXCollections.observableMap(map);
-       
-       observableMap.put("images", new ArrayList<String>());
-       observableMap.get("images").add("png");
-//       observableMap.get("images").add("jpg");
-//       observableMap.get("images").add("jpeg");
-//       
-//       observableMap.put("vidoes", new ArrayList<String>());
-//       observableMap.get("videos").add("mp4");
-//       observableMap.get("videos").add("wmv");
-//       observableMap.get("videos").add("flv");
-//       
-//       observableMap.put("audios", new ArrayList<String>());
-//       observableMap.get("audios").add("mp3");
-//       observableMap.get("images").add("jpg");
-//       observableMap.get("images").add("jpeg");
+     //   System.out.println(successLabel.getText());
+      map = new HashMap<String, ArrayList<String> >();
       
-//       for (String key : observableMap.keySet())
-//            for(String val : observableMap.get(key)){
-//                System.out.println("Key: "+key+", Val: "+val);
-//            }
-       
+      map.put("videos", new ArrayList<String>(Arrays.asList("mp4","wmv" ,"flv")));
+      map.put("images", new ArrayList<String>(Arrays.asList("png","jpg" ,"jpeg")));
+      map.put("audios", new ArrayList<String>(Arrays.asList("mp3")));
+      
+      StringBuilder str= new StringBuilder();
+      for(String key : map.keySet()){
+          str.append("'"+key+"'"+" allows : ");
+          for(String val: map.get(key)){
+              str.append("("+val+") ");
+          }
+          
+         str.append("\n");
+      }
+      
+        System.out.println("folderType: "+str.toString());
+        folderTypeLabel.setText(str.toString());
     }    
     
 }

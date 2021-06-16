@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,7 +34,6 @@ public class MoveXMLController implements Initializable {
     File[] filesInDir =null;
     String apath;
     Map<String, ArrayList<String>> map;
-    ObservableMap<String, ArrayList<String>> observableMap;
     
     @FXML void createCategoryOnAction(ActionEvent e){
     }
@@ -79,24 +76,24 @@ public class MoveXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
        map = new HashMap<String, ArrayList<String> >();
        
-       observableMap = FXCollections.observableMap(map);
-       observableMap.put("images", new ArrayList<String>());
-       observableMap.get("images").add("png");
-       observableMap.get("images").add("jpg");
-       observableMap.get("images").add("jpeg");
+//       observableMap = FXCollections.observableMap(map);
+//       observableMap.put("images", new ArrayList<String>());
+//       observableMap.get("images").add("png");
+//       observableMap.get("images").add("jpg");
+//       observableMap.get("images").add("jpeg");
        
-       observableMap.put("vidoes", new ArrayList<String>());
-       observableMap.get("videos").add("mp4");
-       observableMap.get("videos").add("wmv");
-       observableMap.get("videos").add("flv");
+       map.put("vidoes", new ArrayList<String>());
+       map.get("videos").add("mp4");
+       map.get("videos").add("wmv");
+       map.get("videos").add("flv");
        
-       observableMap.put("audios", new ArrayList<String>());
-       observableMap.get("audios").add("mp3");
+       map.put("audios", new ArrayList<String>());
+       map.get("audios").add("mp3");
 //       observableMap.get("images").add("jpg");
 //       observableMap.get("images").add("jpeg");
       
-       for (String key : observableMap.keySet())
-            for(String val : observableMap.get(key)){
+       for (String key : map.keySet())
+            for(String val : map.get(key)){
                 System.out.println("Key: "+key+", Val: "+val);
             }
        
