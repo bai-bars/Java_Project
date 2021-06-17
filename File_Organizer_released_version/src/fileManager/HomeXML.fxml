@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" maxHeight="450.0" maxWidth="700.0" minHeight="450.0" minWidth="700.0" prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: rgb(23, 35, 51);" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fileManager.HomeXMLController">
+   <children>
+      <ImageView fitHeight="305.0" fitWidth="305.0" layoutX="214.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo/brandFinal.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="57.0" fitWidth="58.0" layoutX="326.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo/loading-gif.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
