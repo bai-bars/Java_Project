@@ -1,9 +1,5 @@
 <h1 align='center'><i>File Organizer</i></h1>
 
-Using Tools:
-------------
-JavaFX
-
 Dependencies I have used:
 ------------
 Java : `java 13.0.2` <br>
